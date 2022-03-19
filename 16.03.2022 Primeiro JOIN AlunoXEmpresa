@@ -1,0 +1,16 @@
+elect * from Aluno;
+select * from Empresa;
+
+alter table Aluno add column fkEmpresa int;
+alter table Aluno add foreign key (fkEmpresa)
+	references Empresa (id);
+    
+    desc Aluno;
+    
+    
+    
+    update Aluno set fkEmpresa = 1 where ra = '01221116';
+    
+    
+    select aluno.ra, empresa.nome from aluno
+		join empresa on empresa.id = aluno.fkEmpresa;
