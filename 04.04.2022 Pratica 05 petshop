@@ -1,0 +1,40 @@
+create database sprint2;
+use sprint2;
+
+create table cliente (
+idCliente int primary key auto_increment,
+nome varchar (50),
+telefonefixo char(8),
+telefonecelular char(9),
+endereco varchar (100)
+);
+
+create table pet (
+idPet int primary key auto_increment,
+fkcliente int,
+tipo varchar(50),
+nome varchar(50),
+raca varchar(50),
+dtNascimento date,
+foreign key (fkcliente) references cliente(idCliente)
+)auto_increment=101;
+
+insert into cliente values
+(null, 'Diogo nascimento',22315166,99123642,'alameda dos anjos'),
+(null,'Julia nascimento',22314284,99204713,'alameda dos andes'),
+(null, 'Carol rimonatto',22345864,993041754,'alameda dos lagos');
+
+insert into pet values
+(null,1,'cachorro','fred','pastor alemao','2015-12-05'),
+(null,1,'cachorro','bjorn','boxer','2019-04-15'),
+(null,2,'gato','pandora','siames','2020-05-23'),
+(null,3,'coelho','doby','coelho leão','2022-02-10');
+
+select * from cliente;
+select * from pet;
+desc pet;
+
+alter table cliente modify column nome varchar(70);
+desc cliente;
+
+select * from pet  
